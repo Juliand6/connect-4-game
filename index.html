@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect 4 - Dark Horses</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div class="menu">
+        <header>
+        <h1>Connect 4</h1>
+
+        <h2> by Dark Horses</h2>
+    </header>
+        <button onclick="openGame()">Play</button>
+        <a href="instructions.html"><button>Instructions </button></a>
+        <a href="weather.html"><button>Weather</button></a>
+
+    </div>
+
+    <div class="game" style="display:none;">
+
+
+        <div class="score">
+            <div class="scoreboard">Player 1 Score <br> <span id="p1-score">0 </span></div>
+            <div class="scoreboard">Player 2 Score <br> <span id="p2-score">0 </span></div>
+        </div>
+
+
+        <h3>Choose Your Colour Before You Start</h3>
+
+        <label>Player 1: <input type="color" id="p1-color" value="#ff0000"></label>
+        <label>Player 2: <input type="color" id="p2-color" value="#0000ff"></label>
+        <p></p>
+
+        <button onclick="colourSelect()">Start Game</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="quit()">Quit</button>
+
+        <div id="board-container">
+        <div id="board"></div>
+
+     
+</body>
+</html>

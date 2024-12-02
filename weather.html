@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather - Connect 4</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="weather-page">
+        <h2>Weather Forecast</h2>
+        
+        <div class="weather-container">
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Enter city name">
+                <button onclick="getWeather()">Search</button>
+            </div>
+            
+            <div id="weather-info" class="weather-info" style="display: none;">
+                <div id="city-name"></div>
+                <div id="temperature"></div>
+                <div id="weather-description"></div>
+                <div id="humidity"></div>
+                <div id="wind-speed"></div>
+            </div>
+        </div>
+
+        <a href="index.html"><button>Back to Home</button></a>
+    </div>
+
+    <script>
+        async function getWeather() {
+            const cityInput = document.getElementById('city-input');
+            const city = cityInput.value.trim();
+            
+            if (!city) {
+                alert('Please enter a city name');
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/weather/${city}`);
+                
+                if (!response.ok) {
+                    throw new Error('City not found or server error');
+                }
+
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                alert(error.message);
+                document.getElementById('weather-info').style.display = 'none';
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherInfo = document.getElementById('weather-info');
+            const cityName = document.getElementById('city-name');
+            const temperature = document.getElementById('temperature');
+            const weatherDescription = document.getElementById('weather-description');
+            const humidity = document.getElementById('humidity');
+            const windSpeed = document.getElementById('wind-speed');
+
+            cityName.textContent = `${data.name}, ${data.sys.country}`;
+            temperature.textContent = `Temperature: ${Math.round(data.main.temp)}°C`;
+            weatherDescription.textContent = `Weather: ${data.weather[0].description}`;
+            humidity.textContent = `Humidity: ${data.main.humidity}%`;
+            windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
+
+            weatherInfo.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

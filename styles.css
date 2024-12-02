@@ -1,0 +1,169 @@
+body {
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #cdaf95;
+}
+
+button {
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    background-color:peachpuff;
+    border: 2px solid black; 
+    transition-duration: 0.4s;
+    font-size:20px;
+    font-weight:700;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    margin: 0 auto;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(6, 50px);
+    gap: 5px;
+    background-color: lightblue;
+    border: 20px solid blue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin: 20px 0;
+}
+
+.scoreboard {
+    border: 2px solid black; 
+    padding: 15px 20px;
+    font-size: 18px;
+    background-color: white;
+    min-width: 150px;
+    text-align: center;
+}
+
+
+.instructions-box {
+    width: 60%;
+    margin: 50px auto; 
+    padding: 25px;
+    background-color: white;
+    border: 2px solid black;  
+    border-radius: 15px;       
+    text-align: center; 
+}
+
+
+.instructions-paragraph {
+    font-size: 20px;
+    text-align: justify; 
+    margin-bottom: 30px;
+}
+
+body.inst {
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    height: 100vh;          
+    margin: 0;             
+}
+
+.weather-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.weather-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.weather-info {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.weather-info > div {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+#city-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#temperature {
+    color: #e65100;
+    font-weight: bold;
+}
+
+#weather-description {
+    text-transform: capitalize;
+}
+
+/* Make the weather page responsive */
+@media (max-width: 480px) {
+    .weather-page {
+        padding: 10px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .weather-info > div {
+        font-size: 16px;
+    }
+}
+
+
